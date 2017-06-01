@@ -1,4 +1,9 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
 <h3>Create Post</h3>
+
 
 @if (count($errors) > 0)
     <div class="alert alert-danger">
@@ -10,6 +15,7 @@
     </div>
 @endif
 
+
 @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -17,7 +23,8 @@
 @endif
 <br>
 
-{!! Form::model($post, ['action' => 'PostController@store']) !!}
+
+{!! Form::model($post, ['action' => 'PostController@store','class' => 'form-horizontal']) !!}
 
 <div class="form-group">
     {!! Form::label('name', 'Name') !!}
@@ -32,3 +39,5 @@
 <button class="btn btn-success" type="submit">Add the Post!</button>
 
 {!! Form::close() !!}
+</div>
+    @endsection
